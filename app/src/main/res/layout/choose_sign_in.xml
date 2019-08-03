@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="@dimen/sign_in_button_width"
+        android:layout_height="@dimen/default_height"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:onClick="onButtonPressed"
+        android:id="@+id/sign_in_google"/>
+
+    <Button
+        android:layout_width="@dimen/sign_in_button_width"
+        android:layout_height="@dimen/default_height"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/sign_in_google"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:onClick="onButtonPressed"
+        android:id="@+id/sign_in_email"/>
+
+</RelativeLayout>

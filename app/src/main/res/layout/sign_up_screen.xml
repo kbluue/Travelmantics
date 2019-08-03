@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_height"
+        android:layout_margin="@dimen/default_margin"
+        android:hint="@string/email"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_height"
+        android:layout_margin="@dimen/default_margin"
+        android:hint="@string/names"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_height"
+        android:layout_margin="@dimen/default_margin"
+        android:hint="@string/password"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/default_height"
+        android:layout_marginStart="@dimen/default_margin"
+        android:text="@string/admin"
+        android:textSize="@dimen/default_text_size"
+        android:id="@+id/admin"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:text="@string/sign_in_msg"
+        android:textSize="@dimen/default_text_size"
+        android:clickable="true"
+        android:onClick="onButtonPressed"
+        android:id="@+id/sign_in"/>
+
+    <Button
+        android:layout_width="@dimen/default_width"
+        android:layout_height="@dimen/default_height"
+        android:layout_margin="@dimen/default_margin"
+        android:layout_gravity="end"
+        android:text="@string/sign_up"
+        android:textSize="@dimen/default_text_size"
+        android:onClick="onButtonPressed"
+        android:id="@+id/sign_up"/>
+
+</LinearLayout>

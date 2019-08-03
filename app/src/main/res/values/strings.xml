@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Travelmantics</string>
+    <string name="instructions">Instructions</string>
+    <string name="email">E-mail</string>
+    <string name="names">First &amp; Last Name</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Login</string>
+    <string name="sign_up">Register</string>
+    <string name="location">Location</string>
+    <string name="price">Price</string>
+    <string name="desc">Description</string>
+    <string name="$15">$15000</string>
+    <string name="save">Save</string>
+    <string name="add_deal">Add New Deal</string>
+    <string name="admin">Admin</string>
+    <string name="sign_in_msg">Already have an account? Sign in!</string>
+    <string name="sign_up_msg">Don\'t have an account? Sign Up</string>
 </resources>
