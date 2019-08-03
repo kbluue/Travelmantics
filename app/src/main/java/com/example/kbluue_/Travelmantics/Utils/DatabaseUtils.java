@@ -19,19 +19,15 @@ public interface DatabaseUtils {
                 .getKey();
     }
 
-    static boolean save(String path, Object object){
-        getRef(path).push()
-                .setValue(object);
-        return false;
-    }
-
-    static boolean save(String path, String id, Object object){
+    static boolean save(String id, String path, DatabaseObject object){
+        Listener listener = new Listener();
         getRef(path).child(id)
-                .setValue(object);
-        return false;
+                .setValue(object)
+        .addOnCompleteListener(listener.getListener());
+        return listener.isSuccess();
     }
 
-    static boolean delete(String path, String id){
+    static boolean delete(String id, String path){
         getRef(path).child(id)
                 .removeValue();
         return false;

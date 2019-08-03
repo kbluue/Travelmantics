@@ -23,7 +23,10 @@ public class DatabaseObject {
     }
 
     public boolean save() {
-        DatabaseUtils.save(id, path, this);
-        return false;
+        return DatabaseUtils.save(id, path, this);
+    }
+
+    public boolean delete(){
+        return DatabaseUtils.delete(id, path);
     }
 }
