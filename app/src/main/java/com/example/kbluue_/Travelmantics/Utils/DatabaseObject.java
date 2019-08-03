@@ -4,7 +4,7 @@ package com.example.kbluue_.Travelmantics.Utils;
  * Created by _kbluue_ on 8/2/2019.
  */
 
-public class DatabaseObject implements DatabaseUtils {
+public class DatabaseObject implements com.example.kbluue_.Travelmantics.Utils.DatabaseUtils {
 
     protected String id;
 

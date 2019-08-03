@@ -1,8 +1,10 @@
 package com.example.kbluue_.Travelmantics.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import com.example.kbluue_.Travelmantics.R;
 import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
@@ -13,28 +15,25 @@ import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
  *
  */
 
-public class AddNewDealActivity extends BaseActivity {
+public class ViewDealsActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_deal);
+        setContentView(R.layout.view_deals);
     }
 
     @Override
     public void onButtonPressed(View v) {
         int id = v.getId();
 
-        if (id == R.id.save){
-            if (saveToDB()){
-                onBackPressed();
-            } else {
-
-            }
+        if (id == R.id.add_new_deal){
+            startActivity(new Intent(this, AddNewDealActivity.class));
         }
     }
 
-    private boolean saveToDB(){
-        return false;
+    @Override
+    public void onBackPressed() {
+        //select action
     }
 }

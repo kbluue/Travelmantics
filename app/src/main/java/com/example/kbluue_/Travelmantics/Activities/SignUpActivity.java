@@ -2,8 +2,9 @@ package com.example.kbluue_.Travelmantics.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import com.example.kbluue_.Travelmantics.R;
 import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
@@ -14,12 +15,12 @@ import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
  *
  */
 
-public class SignInActivity extends BaseActivity {
+public class SignUpActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_in_screen);
+        setContentView(R.layout.sign_up_screen);
     }
 
     @Override
@@ -27,13 +28,13 @@ public class SignInActivity extends BaseActivity {
         int id = v.getId();
 
         if (id == R.id.sign_in){
+            onBackPressed();
+        } else if (id == R.id.sign_up){
             if (authenticate()){
                 startActivity(new Intent(this, ViewDealsActivity.class));
             } else {
 
             }
-        } else if (id == R.id.sign_up){
-            startActivity(new Intent(this, SignUpActivity.class));
         }
     }
 }

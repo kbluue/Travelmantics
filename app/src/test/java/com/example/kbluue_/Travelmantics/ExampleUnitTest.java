@@ -1,4 +1,4 @@
-package com.example.kbluue_.travelmantics;
+package com.example.kbluue_.Travelmantics;
 
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
 package com.example.kbluue_.Travelmantics.Utils;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by _kbluue_ on 8/2/2019.

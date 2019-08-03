@@ -1,4 +1,4 @@
-package com.example.kbluue_.travelmantics;
+package com.example.kbluue_.Travelmantics;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
