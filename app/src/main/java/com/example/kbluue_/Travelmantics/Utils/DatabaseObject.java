@@ -6,18 +6,24 @@ package com.example.kbluue_.Travelmantics.Utils;
 
 public class DatabaseObject {
 
-    protected String id, path;
+    private final String id;
+    protected String path;
+
+    public DatabaseObject(){
+        id = DatabaseUtils.getKey(path);
+    }
+
+    public DatabaseObject(String path){
+        this.path = path;
+        id = DatabaseUtils.getKey(path);
+    }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public boolean save() {
-        DatabaseUtils.save(path, this);
+        DatabaseUtils.save(id, path, this);
         return false;
     }
 }
