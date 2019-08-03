@@ -22,8 +22,6 @@
         <activity android:name=".Activities.SignUpActivity" />
         <activity android:name=".Activities.ViewDealsActivity" />
 
-        <!--tools:replace="android:appComponentFactory"-->
-
     </application>
 
 </manifest>
