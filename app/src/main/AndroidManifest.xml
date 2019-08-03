@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
 
-        tools:replace="android:appComponentFactory"
+        <!--tools:replace="android:appComponentFactory"-->
+
     </application>
 
 </manifest>

@@ -4,9 +4,9 @@ package com.example.kbluue_.Travelmantics.Utils;
  * Created by _kbluue_ on 8/2/2019.
  */
 
-public class DatabaseObject implements com.example.kbluue_.Travelmantics.Utils.DatabaseUtils {
+public class DatabaseObject {
 
-    protected String id;
+    protected String id, path;
 
     public String getId() {
         return id;
@@ -16,13 +16,8 @@ public class DatabaseObject implements com.example.kbluue_.Travelmantics.Utils.D
         this.id = id;
     }
 
-    @Override
     public boolean save() {
-        return false;
-    }
-
-    @Override
-    public boolean get() {
+        DatabaseUtils.save(path, this);
         return false;
     }
 }

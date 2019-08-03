@@ -9,7 +9,7 @@
     <string name="location">Location</string>
     <string name="price">Price</string>
     <string name="desc">Description</string>
-    <string name="$15">$15000</string>
+    <string name="s15">$15000</string>
     <string name="save">Save</string>
     <string name="add_deal">Add New Deal</string>
     <string name="admin">Admin</string>

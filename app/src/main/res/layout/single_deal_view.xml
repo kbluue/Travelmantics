@@ -42,7 +42,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginRight="@dimen/default_margin"
-        android:text="@string/$15"
+        android:text="@string/s15"
         android:textSize="@dimen/default_text_size"
         android:id="@+id/price"/>
 
