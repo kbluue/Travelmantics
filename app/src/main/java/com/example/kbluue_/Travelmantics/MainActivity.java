@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kbluue_.Travelmantics.Activities.ChooseSignInActivity;
 import com.example.kbluue_.Travelmantics.Activities.ViewDealsActivity;
-import com.example.kbluue_.Travelmantics.DatabaseObjects.Deals;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,8 +14,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        new Deals("Gwarinpa", "Somewhere in Abuja", 23000).save();
 
         if (isNew()){
             startActivity(new Intent(this, ChooseSignInActivity.class));

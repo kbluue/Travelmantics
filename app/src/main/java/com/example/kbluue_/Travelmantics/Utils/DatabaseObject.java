@@ -1,32 +1,34 @@
 package com.example.kbluue_.Travelmantics.Utils;
 
+import static android.util.Log.wtf;
+
 /**
  * Created by _kbluue_ on 8/2/2019.
  */
 
 public class DatabaseObject {
 
-    private final String id;
-    protected String path;
+    private final String id, path;
 
     public DatabaseObject(){
-        id = DatabaseUtils.getKey(path);
+        this(null);
     }
 
     public DatabaseObject(String path){
         this.path = path;
         id = DatabaseUtils.getKey(path);
+        wtf(" ", "DatabaseObject.DatabaseObject: " + id);
     }
 
     public String getId() {
         return id;
     }
 
-    public boolean save() {
-        return DatabaseUtils.save(id, path, this);
+    public void save() {
+        DatabaseUtils.save(id, path, this);
     }
 
-    public boolean delete(){
-        return DatabaseUtils.delete(id, path);
+    public void delete(){
+        DatabaseUtils.delete(id, path);
     }
 }

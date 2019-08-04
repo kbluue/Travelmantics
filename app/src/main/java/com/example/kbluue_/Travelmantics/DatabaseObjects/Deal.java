@@ -6,12 +6,13 @@ import com.example.kbluue_.Travelmantics.Utils.DatabaseObject;
  * Created by _kbluue_ on 8/2/2019.
  */
 
-public class Deals extends DatabaseObject {
+public class Deal extends DatabaseObject {
 
     private String location, desc, imgPath;
     private int price;
 
-    public Deals(String location, String desc, int price) {
+    public Deal(String location, String desc, int price) {
+        super("Deals");
         this.location = location;
         this.desc = desc;
         this.price = price;
