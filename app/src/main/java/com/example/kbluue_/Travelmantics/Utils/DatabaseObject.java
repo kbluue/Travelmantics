@@ -1,14 +1,12 @@
 package com.example.kbluue_.Travelmantics.Utils;
 
-import static android.util.Log.wtf;
-
 /**
  * Created by _kbluue_ on 8/2/2019.
  */
 
 public class DatabaseObject {
 
-    private final String id, path;
+    private String id, path;
 
     public DatabaseObject(){
         this(null);
@@ -17,11 +15,22 @@ public class DatabaseObject {
     public DatabaseObject(String path){
         this.path = path;
         id = DatabaseUtils.getKey(path);
-        wtf(" ", "DatabaseObject.DatabaseObject: " + id);
     }
 
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public void save() {

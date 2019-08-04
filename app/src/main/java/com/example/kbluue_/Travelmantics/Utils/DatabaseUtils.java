@@ -79,7 +79,7 @@ public interface DatabaseUtils {
     }
 
     static Set getAllObject(String path, Class objectClass){
-        LAOListener listener = new LAOListener(objectClass);
+        Retriever listener = new Retriever(objectClass);
         DatabaseReference ref = getRef(path);
         ref.addChildEventListener(listener);
         return listener.getObjects();

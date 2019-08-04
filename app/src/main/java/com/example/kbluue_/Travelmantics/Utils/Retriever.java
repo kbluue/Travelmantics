@@ -13,12 +13,12 @@ import java.util.Set;
 /**
  * LOA => Load All Object
  */
-public class LAOListener implements ChildEventListener {
+public class Retriever implements ChildEventListener {
 
     private final Set objects;
     private final Class ofClass;
 
-    public LAOListener(Class ofClass) {
+    public Retriever(Class ofClass) {
         this.ofClass = ofClass;
         objects = new HashSet();
     }
@@ -30,7 +30,6 @@ public class LAOListener implements ChildEventListener {
     @Override
     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
         objects.add(dataSnapshot.getValue(ofClass));
-        System.out.println("CastxXy: " + objects);
     }
 
     @Override
