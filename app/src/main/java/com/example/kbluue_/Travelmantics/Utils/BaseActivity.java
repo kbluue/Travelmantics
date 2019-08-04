@@ -9,6 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public abstract class BaseActivity extends AppCompatActivity implements HasButtons {
 
     protected boolean authenticate(){
-        return false;
+        return true;
     }
 }

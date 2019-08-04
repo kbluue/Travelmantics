@@ -18,6 +18,8 @@ public class Deal extends DatabaseObject {
         this.price = price;
     }
 
+    public Deal(){}
+
     public String getLocation() {
         return location;
     }
