@@ -1,4 +1,4 @@
-package com.example.kbluue_.Travelmantics.Utils;
+package com.example.kbluue_.Travelmantics.Interfaces;
 
 import android.view.View;
 
