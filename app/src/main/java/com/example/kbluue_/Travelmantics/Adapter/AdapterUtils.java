@@ -1,12 +1,9 @@
-package com.example.kbluue_.Travelmantics.Utils;
+package com.example.kbluue_.Travelmantics.Adapter;
 
 import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.kbluue_.Travelmantics.AdaptableProperties;
-import com.example.kbluue_.Travelmantics.Interfaces.Adaptable;
 
 import java.util.List;
 
