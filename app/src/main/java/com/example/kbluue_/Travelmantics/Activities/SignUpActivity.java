@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.example.kbluue_.Travelmantics.Interfaces.HasButtons;
 import com.example.kbluue_.Travelmantics.R;
 import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
 
@@ -15,7 +16,7 @@ import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
  *
  */
 
-public class SignUpActivity extends BaseActivity {
+public class SignUpActivity extends BaseActivity implements HasButtons {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

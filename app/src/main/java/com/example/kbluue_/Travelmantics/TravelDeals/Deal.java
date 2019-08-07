@@ -64,6 +64,8 @@ public class Deal extends DatabaseObject implements Adaptable {
     public List<AdaptableProperties> getProperties() {
         return new PropertyDelegate()
                 .addProperty(R.id.location, getLocation(), TextView.class)
+                .addProperty(R.id.desc, getDesc(), TextView.class)
+                .addProperty(R.id.price, getPrice(), TextView.class)
                 .deliver();
     }
 }

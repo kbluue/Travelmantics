@@ -4,20 +4,21 @@ import android.view.Menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.kbluue_.Travelmantics.Interfaces.HasButtons;
-
 /**
  * Created by _kbluue_ on 8/2/2019.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements HasButtons {
+public abstract class BaseActivity extends AppCompatActivity {
 
-    protected int menu_res;
+    protected int menuRes;
 
-    public BaseActivity(){}
-
-    public BaseActivity(int menu_res) {
-        this.menu_res = menu_res;
+    /**
+     * @param menuRes
+     *
+     * must be called in the onCreate of subclass
+     */
+    public void setMenuID(int menuRes) {
+        this.menuRes = menuRes;
     }
 
     protected boolean authenticate(){
@@ -26,8 +27,8 @@ public abstract class BaseActivity extends AppCompatActivity implements HasButto
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (menu_res != 0){
-            getMenuInflater().inflate(menu_res, menu);
+        if (menuRes != 0){
+            getMenuInflater().inflate(menuRes, menu);
         }
         return super.onCreateOptionsMenu(menu);
     }
