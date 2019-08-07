@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.example.kbluue_.Travelmantics.DatabaseObjects.Deal;
+import com.example.kbluue_.Travelmantics.TravelDeals.Deal;
 import com.example.kbluue_.Travelmantics.R;
 import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
 

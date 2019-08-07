@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.kbluue_.Travelmantics.DatabaseObjects.Deal;
+import com.example.kbluue_.Travelmantics.TravelDeals.Deal;
 import com.example.kbluue_.Travelmantics.Utils.DatabaseUtils;
 
 public class MainActivity extends AppCompatActivity {

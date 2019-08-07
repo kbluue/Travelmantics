@@ -1,4 +1,4 @@
-package com.example.kbluue_.Travelmantics.DatabaseObjects;
+package com.example.kbluue_.Travelmantics.TravelDeals;
 
 import android.widget.TextView;
 

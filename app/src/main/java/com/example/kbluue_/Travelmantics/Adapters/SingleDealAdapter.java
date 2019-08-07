@@ -9,7 +9,7 @@ import android.widget.ListAdapter;
 
 import androidx.annotation.NonNull;
 
-import com.example.kbluue_.Travelmantics.DatabaseObjects.Deal;
+import com.example.kbluue_.Travelmantics.TravelDeals.Deal;
 import com.example.kbluue_.Travelmantics.Adapter.AdapterUtils;
 
 import java.util.List;
