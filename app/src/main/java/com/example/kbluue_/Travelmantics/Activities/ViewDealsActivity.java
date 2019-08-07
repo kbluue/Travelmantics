@@ -1,14 +1,12 @@
 package com.example.kbluue_.Travelmantics.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.example.kbluue_.Travelmantics.TravelDeals.Deal;
+import com.example.kbluue_.Travelmantics.Interfaces.HasMenu;
 import com.example.kbluue_.Travelmantics.R;
-import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
+import com.example.kbluue_.Travelmantics.TravelDeals.Deal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +17,7 @@ import java.util.List;
  *
  */
 
-public class ViewDealsActivity extends BaseActivity {
+public class ViewDealsActivity extends HasMenu {
 
     List<Deal> deals = new ArrayList<>();
 
@@ -27,16 +25,10 @@ public class ViewDealsActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_deals);
+        setMenuID(R.menu.for_view_deals);
     }
 
-    @Override
-    public void onButtonPressed(View v) {
-        int id = v.getId();
 
-        if (id == R.id.add_new_deal){
-            startActivity(new Intent(this, AddNewDealActivity.class));
-        }
-    }
 
     @Override
     public void onBackPressed() {

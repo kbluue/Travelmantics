@@ -14,7 +14,7 @@ import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
  *
  */
 
-public class AddNewDealActivity extends BaseActivity {
+public class AddNewDealActivity implements  {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
