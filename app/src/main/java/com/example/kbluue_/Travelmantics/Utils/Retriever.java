@@ -30,6 +30,7 @@ public class Retriever implements ChildEventListener {
     @Override
     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
         objects.add(dataSnapshot.getValue(ofClass));
+        System.out.println(objects.size());
     }
 
     @Override
@@ -51,4 +52,5 @@ public class Retriever implements ChildEventListener {
     public void onCancelled(@NonNull DatabaseError databaseError) {
 
     }
+
 }

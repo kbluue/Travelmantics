@@ -1,12 +1,11 @@
 package com.example.kbluue_.Travelmantics;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.kbluue_.Travelmantics.Activities.ChooseSignInActivity;
-import com.example.kbluue_.Travelmantics.Activities.ViewDealsActivity;
+import com.example.kbluue_.Travelmantics.DatabaseObjects.Deal;
+import com.example.kbluue_.Travelmantics.Utils.DatabaseUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,11 +14,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (isNew()){
-            startActivity(new Intent(this, ChooseSignInActivity.class));
-        } else {
-            startActivity(new Intent(this, ViewDealsActivity.class));
-        }
+        DatabaseUtils.getAllObject("", Deal.class);
+
+//        if (isNew()){
+//            startActivity(new Intent(this, ChooseSignInActivity.class));
+//        } else {
+//            startActivity(new Intent(this, ViewDealsActivity.class));
+//        }
     }
 
     private boolean isNew(){
