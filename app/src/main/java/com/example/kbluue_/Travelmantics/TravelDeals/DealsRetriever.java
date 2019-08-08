@@ -1,7 +1,5 @@
 package com.example.kbluue_.Travelmantics.TravelDeals;
 
-import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -11,9 +9,9 @@ import com.google.firebase.database.DatabaseError;
 
 public class DealsRetriever implements ChildEventListener {
 
-    Context context;
+    DealAdapter context;
 
-    public DealsRetriever(Context context) {
+    public DealsRetriever(DealAdapter context) {
         this.context = context;
     }
 
@@ -22,8 +20,7 @@ public class DealsRetriever implements ChildEventListener {
         Deal deal = dataSnapshot.getValue(Deal.class);
         DealAdapter.deals
                 .add(deal);
-        System.out.println(DealAdapter.deals.size() + "thinker");
-//        Toast.makeText(context, "New deal added + " + DealAdapter.deals.size(), Toast.LENGTH_SHORT).show();
+        context.notifyDataSetChanged();
     }
 
     @Override

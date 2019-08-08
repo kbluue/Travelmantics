@@ -12,7 +12,9 @@ public class PropertyDelegate {
     }
 
     public PropertyDelegate addProperty(int key, Object value, Class ofClass){
-        properties.add(new AdaptableProperties(key, value, ofClass));
+        if (value != null && ofClass != null){
+            properties.add(new AdaptableProperties(key, value, ofClass));
+        }
         return this;
     }
 

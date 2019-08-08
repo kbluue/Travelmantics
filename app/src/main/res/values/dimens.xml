@@ -4,7 +4,8 @@
     <dimen name="default_height">70dp</dimen>
     <dimen name="default_margin">15dp</dimen>
     <dimen name="default_text_size">25sp</dimen>
-    <dimen name="single_deal_height">160dp</dimen>
+    <dimen name="smaller_text_size">20sp</dimen>
+    <dimen name="single_deal_height">130dp</dimen>
     <dimen name="sub_deal_height">45dp</dimen>
     <dimen name="sign_in_button_width">250dp</dimen>
     <dimen name="box_height">100dp</dimen>

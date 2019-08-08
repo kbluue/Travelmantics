@@ -20,14 +20,16 @@ import com.example.kbluue_.Travelmantics.Utils.DatabaseUtils;
 
 public class ViewDealsActivity extends BaseActivity {
 
+    DealAdapter adapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_deals);
         setMenuID(R.menu.for_view_deals);
 
-        loadFirebase();
         initRV();
+        loadFirebase();
     }
 
     @Override
@@ -36,13 +38,15 @@ public class ViewDealsActivity extends BaseActivity {
     }
 
     private void initRV(){
+        adapter = new DealAdapter();
         RecyclerView rv = findViewById(R.id.deals_rv);
+        rv.setHasFixedSize(true);
+        rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(new DealAdapter());
     }
 
     private void loadFirebase(){
         DatabaseUtils.getRef("")
-                .addChildEventListener(new DealsRetriever(this));
+                .addChildEventListener(new DealsRetriever(adapter));
     }
 }
