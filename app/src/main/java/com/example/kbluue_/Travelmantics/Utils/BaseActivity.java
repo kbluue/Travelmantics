@@ -51,6 +51,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             case R.id.add_new_deal_menu:
                 startActivity(new Intent(this, AddNewDealActivity.class));
                 return true;
+            case R.id.upload_img:
+                ((AddNewDealActivity) this).onButtonPressed(findViewById(R.id.add_img));
+                return true;
         }
     }
 }

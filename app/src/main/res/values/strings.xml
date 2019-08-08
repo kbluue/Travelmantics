@@ -15,4 +15,6 @@
     <string name="admin">Admin</string>
     <string name="sign_in_msg">Already have an account? Sign in!</string>
     <string name="sign_up_msg">Don\'t have an account? Sign Up</string>
+    <string name="upload_img">Upload Image</string>
+    <string name="google">Google</string>
 </resources>

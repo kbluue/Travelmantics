@@ -6,4 +6,8 @@
         android:title="@string/save"
         app:showAsAction="always"/>
 
+    <item android:id="@+id/upload_img"
+        android:title="@string/upload_img"
+        app:showAsAction="never"/>
+
 </menu>

@@ -1,5 +1,7 @@
 package com.example.kbluue_.Travelmantics.TravelDeals;
 
+import android.net.Uri;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kbluue_.Travelmantics.Adapter.Adaptable;
@@ -17,6 +19,7 @@ import java.util.List;
 public class Deal extends DatabaseObject implements Adaptable {
 
     private String location, desc, imgPath, price;
+    private Uri localUri;
 
     public Deal(String location, String desc, String price) {
         this();
@@ -61,6 +64,14 @@ public class Deal extends DatabaseObject implements Adaptable {
         this.price = price;
     }
 
+    public Uri getLocalUri() {
+        return localUri;
+    }
+
+    public void setLocalUri(Uri localUri) {
+        this.localUri = localUri;
+    }
+
     public boolean isValid(){
         return getId() != null && getLocation() != null && getDesc() != null;
     }
@@ -71,6 +82,15 @@ public class Deal extends DatabaseObject implements Adaptable {
                 .addProperty(R.id.location, getLocation(), TextView.class)
                 .addProperty(R.id.desc, getDesc(), TextView.class)
                 .addProperty(R.id.price, getPrice(), TextView.class)
+                .addProperty(R.id.img, getLocalUri(), ImageView.class)
                 .deliver();
+    }
+
+    @Override
+    public void save() {
+//        if (localUri != null){
+//            StorageUtils.save(getPath(), getLocalUri());
+//        }
+        super.save();
     }
 }

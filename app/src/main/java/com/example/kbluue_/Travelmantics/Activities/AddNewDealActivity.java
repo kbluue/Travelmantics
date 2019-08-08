@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.example.kbluue_.Travelmantics.Firebase.StorageUtils;
 import com.example.kbluue_.Travelmantics.Interfaces.HasButtons;
 import com.example.kbluue_.Travelmantics.R;
 import com.example.kbluue_.Travelmantics.TravelDeals.Deal;
@@ -41,12 +40,8 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICTURE_REQ){
-            String x = data.getData().toString();
-            Uri u = Uri.parse(x);
-            StorageUtils.save("deal-images", u, this)
-            .addOnSuccessListener(this, taskSnapshot -> Toast.makeText(AddNewDealActivity.this, "win", Toast.LENGTH_SHORT).show());
-//            importImg(data.getData());
-            Toast.makeText(this, "End", Toast.LENGTH_SHORT).show();
+            deal.setLocalUri(data.getData());
+            importImg(data.getData());
         }
     }
 
@@ -88,6 +83,7 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons {
             intent.setType("image/*");
             intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
             startActivityForResult(intent, PICTURE_REQ);
+            v.setClickable(false);
         }
     }
 }

@@ -2,8 +2,6 @@ package com.example.kbluue_.Travelmantics.Utils;
 
 import com.example.kbluue_.Travelmantics.Firebase.DatabaseUtils;
 
-import java.util.HashMap;
-
 /**
  * Created by _kbluue_ on 8/2/2019.
  */
@@ -11,7 +9,6 @@ import java.util.HashMap;
 public class DatabaseObject {
 
     private String id, path;
-    private HashMap<String, Boolean> files;
 
     public DatabaseObject(){
         this(null);

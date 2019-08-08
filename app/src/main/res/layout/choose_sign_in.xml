@@ -10,6 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/default_margin"
+        android:text="@string/google"
         android:onClick="onButtonPressed"
         android:id="@+id/sign_in_google"/>
 
@@ -19,6 +20,7 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@id/sign_in_google"
         android:layout_marginBottom="@dimen/default_margin"
+        android:text="@string/email"
         android:onClick="onButtonPressed"
         android:id="@+id/sign_in_email"/>
 

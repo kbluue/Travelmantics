@@ -1,6 +1,6 @@
 package com.example.kbluue_.Travelmantics.Adapter;
 
-import android.graphics.Bitmap;
+import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,7 +20,7 @@ public class AdapterUtils {
             } else if (aP.ofClass() == ImageView.class){
                 ((ImageView)view.
                         findViewById(aP.getKey()))
-                        .setImageBitmap((Bitmap)aP.getValue());
+                        .setImageURI((Uri) aP.getValue());
             }
         }
     }
