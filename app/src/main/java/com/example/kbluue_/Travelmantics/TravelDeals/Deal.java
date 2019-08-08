@@ -16,17 +16,18 @@ import java.util.List;
 
 public class Deal extends DatabaseObject implements Adaptable {
 
-    private String location, desc, imgPath;
-    private int price;
+    private String location, desc, imgPath, price;
 
-    public Deal(String location, String desc, int price) {
-        super("Deals");
+    public Deal(String location, String desc, String price) {
+        this();
         this.location = location;
         this.desc = desc;
         this.price = price;
     }
 
-    public Deal(){}
+    public Deal(){
+        super("Deals");
+    }
 
     public String getLocation() {
         return location;
@@ -52,12 +53,16 @@ public class Deal extends DatabaseObject implements Adaptable {
         this.imgPath = imgPath;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
+    }
+
+    public boolean isValid(){
+        return getId() != null && getLocation() != null && getDesc() != null;
     }
 
     @Override

@@ -5,37 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="@dimen/default_height"
-        android:layout_marginRight="@dimen/default_margin"
-        android:layout_gravity="right"
-        android:text="@string/save"
-        android:textSize="@dimen/default_text_size"
-        android:onClick="onButtonPressed"
-        android:id="@+id/save"/>
+        android:layout_margin="@dimen/default_margin"
+        android:maxLines="1"
+        android:inputType="text"
+        android:hint="@string/location"
+        android:id="@+id/add_location"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="@dimen/default_height"
         android:layout_margin="@dimen/default_margin"
-        android:hint="@string/location"/>
+        android:hint="@string/price"
+        android:inputType="numberDecimal"
+        android:id="@+id/add_price"/>
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="@dimen/default_height"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
-        android:hint="@string/price"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/default_height"
-        android:layout_margin="@dimen/default_margin"
-        android:hint="@string/desc"/>
+        android:minHeight="@dimen/default_height"
+        android:maxHeight="@dimen/bigger_height"
+        android:hint="@string/desc"
+        android:id="@+id/add_desc"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/default_margin"/>
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/border"
+        android:focusable="true"
+        android:clickable="true"
+        android:onClick="onButtonPressed"
+        android:id="@+id/add_img"/>
 
 </LinearLayout>

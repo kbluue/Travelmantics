@@ -10,7 +10,7 @@ import com.example.kbluue_.Travelmantics.R;
 import com.example.kbluue_.Travelmantics.TravelDeals.DealAdapter;
 import com.example.kbluue_.Travelmantics.TravelDeals.DealsRetriever;
 import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
-import com.example.kbluue_.Travelmantics.Utils.DatabaseUtils;
+import com.example.kbluue_.Travelmantics.Firebase.DatabaseUtils;
 
 /**
  * Created by _kbluue_ on 8/2/2019.
@@ -46,7 +46,7 @@ public class ViewDealsActivity extends BaseActivity {
     }
 
     private void loadFirebase(){
-        DatabaseUtils.getRef("")
+        DatabaseUtils.getRef("Deals")
                 .addChildEventListener(new DealsRetriever(adapter));
     }
 }
