@@ -4,6 +4,8 @@ import android.net.Uri;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.example.kbluue_.Travelmantics.Adapter.Adaptable;
 import com.example.kbluue_.Travelmantics.Adapter.AdaptableProperties;
 import com.example.kbluue_.Travelmantics.Adapter.PropertyDelegate;
@@ -105,5 +107,15 @@ public class Deal extends DatabaseObject implements Adaptable {
             StorageUtils.delete(getPath(), getId());
         }
         super.delete();
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj instanceof Deal){
+            Deal deal = (Deal) obj;
+            return getId().equals(deal.getId());
+        } else {
+            return super.equals(obj);
+        }
     }
 }

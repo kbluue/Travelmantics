@@ -13,7 +13,7 @@ public interface StorageUtils {
         if (path.length > 0){
             StorageReference ref = FirebaseStorage.getInstance()
                     .getReference(verifyPath(path[0]));
-            for (int i = 0; i < path.length; i++) {
+            for (int i = 1; i < path.length; i++) {
                 ref = ref.child(verifyPath(path[i]));
             }
             return ref;
