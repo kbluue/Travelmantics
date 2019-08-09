@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class AdapterUtils {
@@ -18,9 +20,20 @@ public class AdapterUtils {
                         findViewById(aP.getKey()))
                         .setText(aP.getValue().toString());
             } else if (aP.ofClass() == ImageView.class){
-                ((ImageView)view.
-                        findViewById(aP.getKey()))
-                        .setImageURI(Uri.parse(aP.getValue().toString()));
+                Object value = aP.getValue();
+                ImageView target = view.findViewById(aP.getKey());
+                if (value instanceof Integer){
+                    int i = (int) value;
+                    target.setImageResource(i);
+                } else if (value instanceof Uri){
+                    Uri uri = (Uri) value;
+                    target.setImageURI(uri);
+                } else if (value instanceof String) {
+                    String s = (String) value;
+                    Picasso.get()
+                            .load(s)
+                            .into(target);
+                }
             }
         }
     }

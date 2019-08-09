@@ -9,6 +9,7 @@
         android:layout_height="@dimen/single_deal_height"
         android:layout_alignParentLeft="true"
         android:src="@mipmap/logo"
+        android:scaleType="centerCrop"
         android:id="@+id/img"/>
 
     <TextView

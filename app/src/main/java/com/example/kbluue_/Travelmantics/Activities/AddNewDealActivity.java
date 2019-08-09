@@ -24,7 +24,6 @@ import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
 public class AddNewDealActivity extends BaseActivity implements HasButtons {
 
     Deal deal;
-    Uri imgUri;
     private static final int PICTURE_REQ = 462;
 
     @Override
@@ -73,8 +72,7 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons {
 
     private void importImg(Uri importUri){
         ImageView view = findViewById(R.id.add_img);
-        imgUri = importUri;
-        view.setImageURI(imgUri);
+        view.setImageURI(importUri);
     }
 
     @Override

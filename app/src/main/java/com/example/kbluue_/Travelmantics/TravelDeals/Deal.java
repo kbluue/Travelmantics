@@ -20,13 +20,7 @@ import java.util.List;
 public class Deal extends DatabaseObject implements Adaptable {
 
     private String location, desc, imgPath, price;
-
-    public Deal(String location, String desc, String price) {
-        this();
-        this.location = location;
-        this.desc = desc;
-        this.price = price;
-    }
+    private boolean online;
 
     public Deal(){
         super("Deals");
@@ -64,6 +58,14 @@ public class Deal extends DatabaseObject implements Adaptable {
         this.price = price;
     }
 
+    public boolean isOnline() {
+        return online;
+    }
+
+    public void setOnline(boolean online) {
+        this.online = online;
+    }
+
     public boolean isValid(){
         return getId() != null && getLocation() != null && getDesc() != null;
     }
@@ -74,21 +76,34 @@ public class Deal extends DatabaseObject implements Adaptable {
                 .addProperty(R.id.location, getLocation(), TextView.class)
                 .addProperty(R.id.desc, getDesc(), TextView.class)
                 .addProperty(R.id.price, getPrice(), TextView.class)
-                .addProperty(R.id.img, getImgPath(), ImageView.class)
+                .addProperty(R.id.img, isOnline() ? getImgPath()
+                        : getImgPath() == null ? null
+                        : Uri.parse(getImgPath()), ImageView.class)
                 .deliver();
     }
 
     @Override
     public void save() {
         if (getImgPath() != null){
-            StorageUtils.save(getId(),
-                    Uri.parse(getImgPath()))
-            .addOnCompleteListener( task -> {
-                if (task.isSuccessful()){
-                    System.out.println(task.getResult().toString() + " : Download URL");
-                }
-            });
+            StorageUtils.save(Uri.parse(getImgPath()), getPath(), getId())
+                    .addOnSuccessListener(taskSnapshot -> taskSnapshot.getStorage()
+                    .getDownloadUrl()
+                    .addOnSuccessListener(uri -> {
+                        setImgPath(uri.toString());
+                        setOnline(true);
+                        super.save();
+                    }));
+        } else {
+            super.save();
         }
-        super.save();
+
+    }
+
+    @Override
+    public void delete() {
+        if (isOnline()){
+            StorageUtils.delete(getPath(), getId());
+        }
+        super.delete();
     }
 }
