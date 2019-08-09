@@ -21,8 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (AuthUtils.isLoggedIn()){
-
+            System.out.println("Logged in");
         } else {
+            System.out.println("Not logged in");
             AuthUtils.signIn(this);
         }
 
@@ -52,9 +53,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-    private boolean isNew(){
-        return true;
     }
 }

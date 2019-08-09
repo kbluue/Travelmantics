@@ -26,6 +26,7 @@ public interface AuthUtils {
     }
 
     static boolean isLoggedIn(){
+        System.out.println("isLoggedIn called");
         return FirebaseAuth.getInstance().getCurrentUser() != null;
     }
 }
