@@ -7,7 +7,7 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface AuthUtils {
@@ -15,8 +15,9 @@ public interface AuthUtils {
     int RC_SIGN_IN = 555;
 
     static void signIn(Activity host, LoginProvider defaultProvider, LoginProvider... otherProviders){
-        List<AuthUI.IdpConfig> providers = Arrays.asList(getConfig(defaultProvider));
+        List<AuthUI.IdpConfig> providers = new ArrayList<>();
 
+        providers.add(getConfig(defaultProvider));
         for (LoginProvider provider : otherProviders){
             providers.add(getConfig(provider));
         }
@@ -29,12 +30,12 @@ public interface AuthUtils {
                 RC_SIGN_IN);
     }
 
-    static Task signOut(Context context){
+    static Task<Void> signOut(Context context){
         return AuthUI.getInstance()
                 .signOut(context);
     }
 
-    static Task deleteAccount(Context context){
+    static Task<Void> deleteAccount(Context context){
         return AuthUI.getInstance()
                 .delete(context);
     }

@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kbluue_.Travelmantics.Firebase.AuthUtils;
 import com.example.kbluue_.Travelmantics.R;
 import com.example.kbluue_.Travelmantics.TravelDeals.DealAdapter;
 import com.example.kbluue_.Travelmantics.TravelDeals.DealsRetriever;
@@ -34,7 +35,8 @@ public class ViewDealsActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        //select action
+        AuthUtils.signOut(this)
+        .addOnCompleteListener(task -> System.exit(0));
     }
 
     private void initRV(){
