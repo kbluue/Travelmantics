@@ -20,7 +20,7 @@ public class AdapterUtils {
             } else if (aP.ofClass() == ImageView.class){
                 ((ImageView)view.
                         findViewById(aP.getKey()))
-                        .setImageURI((Uri) aP.getValue());
+                        .setImageURI(Uri.parse(aP.getValue().toString()));
             }
         }
     }

@@ -37,10 +37,12 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICTURE_REQ){
-            deal.setLocalUri(data.getData());
+        if (requestCode == PICTURE_REQ || resultCode == RESULT_OK){
+            Uri uri = data.getData();
+
+            deal.setImgPath(uri.toString());
             importImg(data.getData());
         }
     }
@@ -79,7 +81,7 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons {
     public void onButtonPressed(View v) {
         if (v.getId() == R.id.add_img) {
             Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             intent.setType("image/*");
             intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
             startActivityForResult(intent, PICTURE_REQ);
