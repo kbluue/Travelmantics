@@ -1,14 +1,13 @@
 package com.example.kbluue_.Travelmantics.Utils;
 
-import android.content.Intent;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.kbluue_.Travelmantics.Activities.AddNewDealActivity;
-import com.example.kbluue_.Travelmantics.R;
+import com.example.kbluue_.Travelmantics.Interfaces.HasMenu;
 
 /**
  * Created by _kbluue_ on 8/2/2019.
@@ -16,16 +15,8 @@ import com.example.kbluue_.Travelmantics.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    protected int menuRes;
-
-    /**
-     * @param menuRes
-     *
-     * must be called in the onCreate of subclass
-     */
-    public void setMenuID(int menuRes) {
-        this.menuRes = menuRes;
-    }
+    private int menuRes;
+    private SparseArray<Runnable> menuActions;
 
     protected boolean authenticate(){
         return true;
@@ -33,7 +24,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (menuRes != 0){
+        if (this instanceof HasMenu){
+            HasMenu menuActivity = (HasMenu) this;
+            menuRes = menuActivity.setMenuId();
+            menuActions = menuActivity.setMenuActions();
             getMenuInflater().inflate(menuRes, menu);
         }
         return super.onCreateOptionsMenu(menu);
@@ -41,19 +35,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            default:
-                Toast.makeText(this, "Menu Action not defined", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.save_menu:
-                ((AddNewDealActivity)this).saveMenuAction();
-                return true;
-            case R.id.add_new_deal_menu:
-                startActivity(new Intent(this, AddNewDealActivity.class));
-                return true;
-            case R.id.upload_img:
-                ((AddNewDealActivity) this).onButtonPressed(findViewById(R.id.add_img));
-                return true;
+        Runnable action = menuActions.get(item.getItemId());
+        if (action != null){
+            action.run();
+        } else {
+            Toast.makeText(this, "Menu action not defined", Toast.LENGTH_SHORT).show();
         }
+        return true;
     }
 }

@@ -3,6 +3,7 @@ package com.example.kbluue_.Travelmantics.Activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.kbluue_.Travelmantics.Interfaces.HasButtons;
+import com.example.kbluue_.Travelmantics.Interfaces.HasMenu;
 import com.example.kbluue_.Travelmantics.R;
 import com.example.kbluue_.Travelmantics.TravelDeals.Deal;
 import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
@@ -21,7 +23,7 @@ import com.example.kbluue_.Travelmantics.Utils.BaseActivity;
  *
  */
 
-public class AddNewDealActivity extends BaseActivity implements HasButtons {
+public class AddNewDealActivity extends BaseActivity implements HasButtons, HasMenu {
 
     Deal deal;
     private static final int PICTURE_REQ = 462;
@@ -30,7 +32,6 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_deal);
-        setMenuID(R.menu.for_add_deal);
 
         deal = new Deal();
     }
@@ -85,5 +86,23 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons {
             startActivityForResult(intent, PICTURE_REQ);
             v.setClickable(false);
         }
+    }
+
+    @Override
+    public int setMenuId() {
+        return R.menu.for_add_deal;
+    }
+
+    @Override
+    public SparseArray<Runnable> setMenuActions() {
+        return new SparseArray<Runnable>(){
+            {
+                put(R.id.save_menu,
+                        () -> saveMenuAction());
+
+                put(R.id.upload_img,
+                        () -> onButtonPressed(findViewById(R.id.add_img)));
+            }
+        };
     }
 }
