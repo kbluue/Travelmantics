@@ -69,7 +69,7 @@ public class Deal extends DatabaseObject implements Adaptable {
     }
 
     public boolean isValid(){
-        return getId() != null && getLocation() != null && getDesc() != null;
+        return !getId().isEmpty() && !getLocation().isEmpty() && !getDesc().isEmpty();
     }
 
     @Override

@@ -18,10 +18,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     private int menuRes;
     private SparseArray<Runnable> menuActions;
 
-    protected boolean authenticate(){
-        return true;
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (this instanceof HasMenu){

@@ -43,7 +43,7 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons, HasM
             Uri uri = data.getData();
 
             deal.setImgPath(uri.toString());
-            importImg(data.getData());
+            displayImage(data.getData());
         }
     }
 
@@ -52,7 +52,7 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons, HasM
             deal.save();
             onBackPressed();
         } else {
-            Toast.makeText(this, "Nothing to save", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Add the required information", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
@@ -66,12 +66,7 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons, HasM
         deal.setDesc(desc.getText().toString());
     }
 
-    public void saveMenuAction(){
-        populate();
-        saveDeal();
-    }
-
-    private void importImg(Uri importUri){
+    private void displayImage(Uri importUri){
         ImageView view = findViewById(R.id.add_img);
         view.setImageURI(importUri);
     }
@@ -98,7 +93,10 @@ public class AddNewDealActivity extends BaseActivity implements HasButtons, HasM
         return new SparseArray<Runnable>(){
             {
                 put(R.id.save_menu,
-                        () -> saveMenuAction());
+                        () -> {
+                            populate();
+                            saveDeal();
+                        });
 
                 put(R.id.upload_img,
                         () -> onButtonPressed(findViewById(R.id.add_img)));

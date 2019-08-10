@@ -45,9 +45,11 @@ public class ViewDealsActivity extends BaseActivity implements HasMenu {
     }
 
     @Override
-    public void onBackPressed() {
-        AuthUtils.signOut(this)
-                .addOnCompleteListener(task -> super.onBackPressed());
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK){
+            adapter.notifyDataSetChanged();
+        }
     }
 
     private void initRV(){
